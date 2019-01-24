@@ -81,8 +81,8 @@ class EmacsPlus < Formula
   end
 
   devel do
-    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1-rc1.tar.xz"
-    sha256 "6594e668de00b96e73ad4f168c897fe4bca7c55a4caf19ee20eac54b62a05758"
+    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1.91.tar.xz"
+    sha256 "0ca140136b72cfa0588648d2089f26a603a4be94ce065c0da7a765ce26ffd909"
   end
 
   head do
@@ -171,14 +171,15 @@ class EmacsPlus < Formula
   # remove after 27.1 is released
   # See https://lists.gnu.org/archive/html/emacs-devel/2018-02/msg00363.html
   unless build.head?
-    patch do
-      url "https://lists.gnu.org/archive/html/emacs-devel/2018-02/txtshOHDg6PmW.txt"
-      sha256 "ba9d9555256f91409c4a7b233c36119514ba3d61f4acdb15d7d017db0fb9f00c"
-    end
-
-    patch do
-      url "https://lists.gnu.org/archive/html/emacs-devel/2018-02/txtzUNqW9dNDT.txt"
-      sha256 "500b437c3ed03e0ef1341b800919aa85cc9a9f13ecbaea8d5fc67bf74510317a"
+    unless build.devel?
+      patch do
+        url "https://lists.gnu.org/archive/html/emacs-devel/2018-02/txtshOHDg6PmW.txt"
+        sha256 "ba9d9555256f91409c4a7b233c36119514ba3d61f4acdb15d7d017db0fb9f00c"
+      end
+      patch do
+        url "https://lists.gnu.org/archive/html/emacs-devel/2018-02/txtzUNqW9dNDT.txt"
+        sha256 "500b437c3ed03e0ef1341b800919aa85cc9a9f13ecbaea8d5fc67bf74510317a"
+      end
     end
   end
 
